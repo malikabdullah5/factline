@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ category.capitalize() }} News - Fact Line</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <style>
+        .news-item {
+            display: flex;
+            gap: 15px;
+            border-bottom: 1px solid #ddd;
+            padding: 15px 0;
+        }
+
+        .news-item img {
+            width: 200px;
+            height: auto;
+            object-fit: cover;
+        }
+
+        .news-content {
+            flex: 1;
+        }
+
+        .card-title a {
+            color: #000000; /* black title */
+            text-decoration: none;
+            font-size: 20px;
+        }
+
+        .card-title a:hover {
+            text-decoration: underline;
+        }
+
+        .text-muted {
+            color: #777;
+            font-size: 13px;
+        }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <div class="logo-text">
+            <span class="line1">FACT LINE </span>           
+        </div>
+        <div class="top-line"></div>
+        <nav class="main-menu">
+            <a href="/">Home</a>
+            <a href="{{ url_for('category_page', category_name='latest') }}">Latest</a>
+            <a href="{{ url_for('category_page', category_name='pakistan') }}">Pakistan</a>
+            <a href="{{ url_for('category_page', category_name='business') }}">Business</a>
+            <a href="{{ url_for('category_page', category_name='opinion') }}">Opinion</a>
+            <a href="{{ url_for('category_page', category_name='world') }}">World</a>
+            <a href="{{ url_for('category_page', category_name='sport') }}">Sports</a>
+        </nav>
+        <div class="bottom-line"></div>
+    </header>
+
+    <main class="main-container">
+        <h2>{{ category.capitalize() }} News</h2>
+
+        {% if news %}
+            {% for item in news %}
+                <div class="news-item">
+                    <img src="{{ url_for('static', filename='uploads/' + item['image']) }}" alt="{{ item['title'] }}">
+                    <div class="news-content">
+                        <h3 class="card-title">
+                            <a href="{{ url_for('news_detail', news_id=item['id']) }}">{{ item['title'] }}</a>
+                        </h3>
+                        <p class="card-text">{{ item['summary'] }}</p>
+                        <p class="card-text"><small class="text-muted">{{ time_ago(item['created_at']) }}</small></p>
+                    </div>
+                </div>
+            {% endfor %}
+        {% else %}
+            <p>No news articles available in this category.</p>
+        {% endif %}
+    </main>
+
+<footer>
+    <p>© 2025 FACT LINE. All rights reserved.</p>
+    <p style="font-size: 12px; color: #888;">Developed by Malik Abdullah</p>
+</footer>
+</body>
+</html>

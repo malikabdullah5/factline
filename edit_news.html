@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Edit News</title>
+</head>
+<body>
+    <h1>Edit News</h1>
+    <form method="post">
+        <label>Title:</label><br>
+        <input type="text" name="title" value="{{ news['title'] }}"><br><br>
+        <label>Content:</label><br>
+        <textarea name="content" rows="10" cols="50">{{ news['content'] }}</textarea><br><br>
+        <button type="submit">Update</button>
+    </form>
+</body>
+</html>

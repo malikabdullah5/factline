@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Admin Dashboard - Peshawar News Network</title>
+    <link rel="stylesheet" href="/static/style.css">
+    <style>
+        body {
+            font-family: 'Open Sans', sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .admin-container {
+            max-width: 900px;
+            margin: 50px auto;
+            background: #fff;
+            padding: 30px;
+            border-radius: 12px;
+            box-shadow: 0 0 15px rgba(0,0,0,0.1);
+        }
+
+        .admin-container h1 {
+            text-align: center;
+            color: #004080;
+            margin-bottom: 30px;
+        }
+
+        .admin-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 20px;
+        }
+
+        .admin-buttons a {
+            display: inline-block;
+            text-decoration: none;
+            background: #004080;
+            color: white;
+            padding: 12px 20px;
+            border-radius: 8px;
+            transition: 0.3s;
+            font-size: 16px;
+        }
+
+        .admin-buttons a:hover {
+            background: #002855;
+        }
+    </style>
+</head>
+<body>
+    <div class="admin-container">
+        <h1>Welcome Admin!</h1>
+        <div class="admin-buttons">
+       <div class="admin-buttons">
+    <a href="/add-news">➕ Add News</a>
+    <a href="/view-news">📊 View All News</a>
+    <a href="/logout">🚪 Logout</a>
+</div>
+</body>
+</html>
